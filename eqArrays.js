@@ -18,7 +18,27 @@ const assertEqual = function(actual, expected) {
   }
 };
 
-// TEST CONDE
-assertEqual("Lighthouse Labs", "Bootcamp");
-assertEqual(1, 1);
+const eqArrays = function(argOne, argTwo) {
+  let i = 0; 
+  while (i <= argOne.length) {
+    if (i === argOne.length) {
+      console.log(true);
+      return true;
+    } else if (argOne[i] === argTwo[i]) {
+      i += 1;
+    }else {
+      console.log(false);
+      return false;
+    }
+  }
+}
 
+
+
+eqArrays([1, 2, 3], [1, 2, 3]) // => true
+eqArrays([1, 2, 3], [3, 2, 1]) // => false
+
+eqArrays(["1", "2", "3"], ["1", "2", "3"]) // => true
+eqArrays(["1", "2", "3"], ["1", "2", 3]) // => false
+
+assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true); // => should PASS
