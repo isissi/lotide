@@ -18,20 +18,21 @@ const assertEqual = function(actual, expected) {
   }
 };
 
-const eqArrays = function(argOne, argTwo) {
-  let i = 0; 
+const eqArrays = function (argOne, argTwo) {
+  if (argOne.length !== argTwo.length) {
+    return false;
+  }
+  let i = 0;
   while (i <= argOne.length) {
     if (i === argOne.length) {
-      console.log(true);
       return true;
     } else if (argOne[i] === argTwo[i]) {
       i += 1;
-    }else {
-      console.log(false);
+    } else {
       return false;
     }
   }
-}
+};
 
 
 

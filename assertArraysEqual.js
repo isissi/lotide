@@ -23,6 +23,9 @@ const assertEqual = function (actual, expected) {
 };
 
 const eqArrays = function (argOne, argTwo) {
+  if (argOne.length !== argTwo.length) {
+    return false;
+  }
   let i = 0;
   while (i <= argOne.length) {
     if (i === argOne.length) {
