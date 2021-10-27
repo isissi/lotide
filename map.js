@@ -32,8 +32,9 @@ const eqArrays = function (argOne, argTwo) {
   }
 };
 
-//const result1 = map(words, word => word[0]);
-const result2 = map(arrays, array => array[0]);
+//TEST CODE
+const result1 = map(words, word => word[0]);
+assertArraysEqual(result1, ['g', 'c', 't', 'm', 't']);
 
-// assertArraysEqual(result1, ['g', 'c', 't', 'm', 't']);
+const result2 = map(arrays, array => array[0]);
 assertArraysEqual(result2, []);
