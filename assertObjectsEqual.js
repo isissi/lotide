@@ -1,34 +1,27 @@
 const eqObjects = function (object1, object2) {
-  //compare length first, return false if not matching
-  if (Object.keys(object1).length === Object.keys(object2).length) {
-    for (let key in object1) {
-      if (key in object2) {
-        //if key in object2
-        let compareResult = compareValue(object1[key], object2[key]);
-        if (!compareResult) {
+  //1.1 check if is object
+  if (Array.isArray(object1) && Array.isArray(object2)) {
+    return eqArrays(object1, object2);
+  }
+
+  if (typeof object1 === "object" && typeof object2 === "object") {
+    //2.1 if key length equal
+    if (Object.keys(object1).length === Object.keys(object2).length) {
+      //3.1 check each value in object if is object
+      for (let key in object1) {
+        if (!eqObjects(object1[key], object2[key])) {
           return false;
         }
-      } else {
-        return false;
       }
+    } else {
+      //2.2 if key length don't equal, then false
+      return false;
     }
   } else {
-    return false;
+    //1.2 compare value if isn't object
+    return object1===object2;
   }
   return true;
-};
-
-const compareValue = function (value1, value2) {
-  //compare type first
-  if (typeof value1 !== typeof value2) {
-    return false;
-  } else {
-    if (Array.isArray(value1)) {
-      return eqArrays(value1, value2);
-    } else {
-      return value1 === value2;
-    }
-  }
 };
 
 // FUNCTION IMPLEMENTATION

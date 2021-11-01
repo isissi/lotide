@@ -21,58 +21,53 @@ const assertEqual = function (actual, expected) {
   }
 };
 
-const eqArrays = function (argOne, argTwo) {
-  if (argOne.length !== argTwo.length) {
-    return false;
-  }
-  let i = 0;
-  while (i <= argOne.length) {
-    if (i === argOne.length) {
-      return true;
-    } else if (argOne[i] === argTwo[i]) {
-      i += 1;
+const eqArrays = (array1, array2) => {
+  if ((Array.isArray(array1)) && (Array.isArray(array2))) {
+    if (array1.length === array2.length ) {
+      for (let i = 0; i < array1.length; i ++ ) {
+          if(!eqArrays(array1[i], array2[i])){
+            return false;
+          }
+      }
     } else {
       return false;
     }
+  } else {
+    if (array1 !== array2) {
+      return false;
+    }
   }
-};
+  return true;
+}
 
 // Returns true if both objects have identical keys with identical values.
 // Otherwise you get back a big fat false!
 
 const eqObjects = function (object1, object2) {
-  //compare length first, return false if not matching
-  if (Object.keys(object1).length === Object.keys(object2).length) {
-    for (let key in object1) {
-      if (key in object2) {
-        //if key in object2
-        let compareResult = compareValue(object1[key], object2[key]);
-        if (!compareResult) {
+  //1.1 check if is object
+  if (Array.isArray(object1) && Array.isArray(object2)) {
+    return eqArrays(object1, object2);
+  }
+
+  if (typeof object1 === "object" && typeof object2 === "object") {
+    //2.1 if key length equal
+    if (Object.keys(object1).length === Object.keys(object2).length) {
+      //3.1 check each value in object if is object
+      for (let key in object1) {
+        if (!eqObjects(object1[key], object2[key])) {
           return false;
         }
-      } else {
-        return false;
       }
+    } else {
+      //2.2 if key length don't equal, then false
+      return false;
     }
   } else {
-    return false;
+    //1.2 compare value if isn't object
+    return object1===object2;
   }
   return true;
 };
-
-const compareValue = function (value1, value2) {
-  //compare type first
-  if (typeof value1 !== typeof value2) {
-    return false;
-  } else {
-    if (Array.isArray(value1)) {
-      return eqArrays(value1, value2);
-    } else {
-      return value1 === value2;
-    }
-  }
-};
-
 //TEST CODE
 const ab = { a: "1", b: "2" };
 const ba = { b: "2", a: "1" };

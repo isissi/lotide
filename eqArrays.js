@@ -18,21 +18,24 @@ const assertEqual = function(actual, expected) {
   }
 };
 
-const eqArrays = function (argOne, argTwo) {
-  if (argOne.length !== argTwo.length) {
-    return false;
-  }
-  let i = 0;
-  while (i <= argOne.length) {
-    if (i === argOne.length) {
-      return true;
-    } else if (argOne[i] === argTwo[i]) {
-      i += 1;
+const eqArrays = (array1, array2) => {
+  if ((Array.isArray(array1)) && (Array.isArray(array2))) {
+    if (array1.length === array2.length ) {
+      for (let i = 0; i < array1.length; i ++ ) {
+          if(!eqArrays(array1[i], array2[i])){
+            return false;
+          }
+      }
     } else {
       return false;
     }
+  } else {
+    if (array1 !== array2) {
+      return false;
+    }
   }
-};
+  return true;
+}
 
 
 
