@@ -1,23 +1,4 @@
-// FUNCTION IMPLEMENTATTION
-const assertEqual = function(actual, expected) {
-  if (actual === expected) {
-    if ((typeof actual === 'string') && (typeof expected === 'string')) {
-      console.log(`✅✅✅ Assertion Passed: \"${actual}\" ===  \"${expected}\"`);
-    } else {
-      console.log(`✅✅✅ Assertion Passed: ${actual} ===  ${expected}`);
-    }
-      
-      return true;
-  } else {
-    if ((typeof actual === 'string') && (typeof expected === 'string')) {
-      console.log(`🛑🛑🛑 Assertion Failed: \"${actual}\" !==  \"${expected}\"`);
-    } else {
-      console.log(`🛑🛑🛑 Assertion Failed: ${actual} !==  ${expected}`);
-    }
-    return false;
-  }
-};
-
+// FUNCTION IMPLEMENTATION
 const eqArrays = (array1, array2) => {
   if ((Array.isArray(array1)) && (Array.isArray(array2))) {
     if (array1.length === array2.length ) {
@@ -37,12 +18,4 @@ const eqArrays = (array1, array2) => {
   return true;
 }
 
-
-
-eqArrays([1, 2, 3], [1, 2, 3]) // => true
-eqArrays([1, 2, 3], [3, 2, 1]) // => false
-
-eqArrays(["1", "2", "3"], ["1", "2", "3"]) // => true
-eqArrays(["1", "2", "3"], ["1", "2", 3]) // => false
-
-assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true); // => should PASS
+module.exports = eqArrays;
