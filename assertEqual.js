@@ -19,6 +19,7 @@ const assertEqual = function(actual, expected) {
 };
 
 // TEST CONDE
-assertEqual("Lighthouse Labs", "Bootcamp");
-assertEqual(1, 1);
 
+
+//export the function
+module.exports = assertEqual;
