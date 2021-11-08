@@ -3,10 +3,6 @@ const chai = require('chai');
 const assert = chai.assert;
 
 //test code
-// console.log(eqArrays([1, 2, 3], [1, 2, 3]));
-// console.log(eqArrays(["1", "2", "3"], ["1", "2", "3"]));
-// console.log(eqArrays(["1", "2", "3"], ["1", "2", 3]));
-
 describe("#assertEqual", () => {
   it("returns true if the input is [1, 2, 3] and [1, 2, 3]", () => {
     const result = eqArrays([1, 2, 3], [1, 2, 3]);
