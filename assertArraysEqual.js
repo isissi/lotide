@@ -1,3 +1,4 @@
+const { log } = require('console');
 const eqArrays = require('./eqArrays');
 
 const assertArraysEqual = function (arrOne, arrTwo) {
@@ -9,5 +10,6 @@ const assertArraysEqual = function (arrOne, arrTwo) {
     return false;
   }
 };
+
 
 module.exports = assertArraysEqual;
