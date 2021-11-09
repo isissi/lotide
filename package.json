@@ -1,8 +1,8 @@
 {
-  "name": "lotide",
+  "name": "@isissi/lotide",
   "version": "1.0.0",
-  "description": "",
-  "main": "assertArraysEqual.js",
+  "description": "lighthouse javascript lotide practice",
+  "main": "index.js",
   "directories": {
     "test": "test"
   },
