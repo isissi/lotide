@@ -35,9 +35,4 @@ const letterPositions = function(sentence) {
   return results;
 };
 
-const sentencToCount = letterPositions("hello");
-
-assertArraysEqual(sentencToCount['h'], [1]);
-assertArraysEqual(sentencToCount['e'], [2]);
-assertArraysEqual(sentencToCount['l'], [3, 4]);
-assertArraysEqual(sentencToCount['o'], [5]);
+module.exports = letterPositions;

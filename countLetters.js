@@ -29,8 +29,4 @@ const countLetters = (sentence) => {
   return results;
 }
 
-const sentenceToCount = countLetters("HELLO THIS IS LIGHTHOUSE LAB");
-
-
-assertEqual(sentenceToCount['L'], 4);
-assertEqual(sentenceToCount['I'], 3);
+module.exports = countLetters;
