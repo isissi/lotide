@@ -10,7 +10,6 @@ const without = function(source, ...itemsToRemove) {
 
   final = final.filter((item) => !removeSource.includes(item));
 
-  console.log(final);
   return final; 
 }
 
