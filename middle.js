@@ -1,6 +1,7 @@
 const middle = (array) => {
   let result = [];
   let i = array.length / 2;
+  
   if (array.length === 1 || array.length === 2) {
     result = [];
   } else if (array.length % 2 === 0) {
