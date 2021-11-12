@@ -1,5 +1,6 @@
 const flatten = function(arr) {
   let result = [];
+
   for (let element of arr) {
     if (Array.isArray(element) === false) {
       result.push(element);
@@ -9,6 +10,7 @@ const flatten = function(arr) {
       }
     } 
   }
+  
   return result;
 }
 
