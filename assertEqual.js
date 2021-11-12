@@ -1,4 +1,3 @@
-// FUNCTION IMPLEMENTATTION
 const assertEqual = function(actual, expected) {
   if (actual === expected) {
     if (typeof actual === "string" && typeof expected === "string") {
@@ -21,5 +20,4 @@ const assertEqual = function(actual, expected) {
   }
 };
 
-//export the function
 module.exports = assertEqual;

@@ -1,4 +1,3 @@
-// FUNCTION IMPLEMENTATTION
 function tail(array) {
   if (array.length === 0) {
     return array;
