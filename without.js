@@ -1,14 +1,17 @@
-const without = function(source, itemsToRemove) {
+const without = function(source, ...itemsToRemove) {
   let final = source;
-  for (let a = 0; a < final.length; a ++) {
-    for (let b = 0; b < itemsToRemove.length; b ++) {
-      if (final[a] === itemsToRemove[b]) {
-        final.splice(a,1);
-      }
+  let removeSource = []
+  
+  for (let items of itemsToRemove) {
+    for (let item of items) {
+      removeSource.push(item);
     }
   }
+
+  final = final.filter((item) => !removeSource.includes(item));
+
   console.log(final);
-  return final;
+  return final; 
     
 }
 
